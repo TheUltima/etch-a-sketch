@@ -3,7 +3,8 @@ body {
   height: 100vh;
   flex-flow: row nowrap;
   margin: 0;
-  background-color: darkslategrey;
+  background-color: rgb(236, 206, 105);
+  color: rgb(0, 0, 0);
 }
 
 .info-sidebar {
@@ -11,9 +12,10 @@ body {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  text-align: center;
   align-items: center;
-  padding: 16px;
-  border-right: 2px solid rgb(145, 145, 145);
+  padding: 24px;
+  gap: 32px;
 }
 
 button {
@@ -27,7 +29,8 @@ button {
 }
 
 .info {
-  font-size: 32px;
+  font-size: 24px;
+  color: rgb(0, 64, 116);
 }
 
 .drawing-board-container {
@@ -35,16 +38,18 @@ button {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  border: 2px solid rgb(233, 11, 11);
   padding: 32px;
 }
 
+/*Setting overflow to hidden will prevent the drawing squares from over flowing through the rounded corners of the board.*/
 .drawing-board {
   display: flex;
   flex: 1 1 960px;
   flex-flow: column nowrap;
-  border: 2px solid rgb(233, 11, 11);
-  background-color: rgb(236, 236, 236);
+  background-color: rgba(109, 250, 255, 0.541);
+  border-radius: 20px;
+  min-width: none;
+  overflow: hidden;
 }
 
 .row {

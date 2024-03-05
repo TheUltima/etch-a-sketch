@@ -1,8 +1,5 @@
 const mainDrawingBoard = document.querySelector(".drawing-board");
-let rows = prompt("How many squares should your board have?", 16);
-if (isNaN(rows) || rows < 16 || rows > 100) {
-  rows = prompt("Please type a valid number ranging from 16 to 100.");
-}
+let rows = 16;
 
 createDrawingBoard();
 
@@ -46,3 +43,5 @@ deleteButton.addEventListener("click", () => {
     square.classList.remove("drawn");
   });
 });
+
+changeSizeButton = document.querySelector(".change-size-button");
