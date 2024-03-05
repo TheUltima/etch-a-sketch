@@ -1,5 +1,6 @@
 const mainDrawingBoard = document.querySelector(".drawing-board");
 let rows = 16;
+const darkenAmount = 25;
 let paintingMode = "black-white";
 const newBoardColor = `rgb(236,236,236)`;
 
@@ -30,15 +31,35 @@ function attachEventListeners() {
 
   individualSquare.forEach((square) => {
     square.addEventListener("mouseover", makeSquaresDraw);
+    square.addEventListener("mousedown", makeSquaresDraw);
   });
 }
 
 function makeSquaresDraw(event) {
+  //Listen for primary mouse button
   if (event.buttons === 1) {
     switch (paintingMode) {
       case "black-white":
-        this.style[`background-color`] = `rgb(0, 0, 0)`;
+        let currentColor = this.style[`background-color`];
+
+        if (!currentColor) {
+          this.style[`background-color`] = `rgb(210, 210, 210)`;
+        } else {
+          //The REGEX matches the RGB values and creates an array of the RGB values
+          const initialRGB = currentColor.match(/\d+/g);
+
+          const newRGB = [
+            initialRGB[0] - darkenAmount,
+            initialRGB[1] - darkenAmount,
+            initialRGB[2] - darkenAmount,
+          ];
+
+          this.style[
+            `background-color`
+          ] = `rgb(${newRGB[0]}, ${newRGB[1]},${newRGB[2]})`;
+        }
         break;
+
       case "colors":
         this.style[`background-color`] = `rgb(${RNG()}, ${RNG()}, ${RNG()})`;
     }
