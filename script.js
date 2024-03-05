@@ -1,5 +1,5 @@
 const mainDrawingBoard = document.querySelector(".drawing-board");
-let rows = 16;
+let rows = 32;
 let drawing = true;
 // let isMouseDown = false;
 
@@ -33,11 +33,23 @@ function attachEventListeners() {
 
   individualSquare.forEach((square) => {
     square.addEventListener("mouseover", (event) => {
-      if (event.buttons === 1 && drawing === true) {
+      if (event.buttons === 1) {
         console.log(event);
-        square.classList.toggle("drawn");
+        square.classList.add("drawn");
         // square.style["background-color"] = `rgb(5,4,2)`;
+      }
+      if (event.buttons === 1 && event.shiftKey === true) {
+        square.classList.remove("drawn");
       }
     });
   });
 }
+
+deleteButton = document.querySelector(".delete-button");
+
+deleteButton.addEventListener("click", () => {
+  const allSquares = document.querySelectorAll(".square");
+  allSquares.forEach((square) => {
+    square.classList.remove("drawn");
+  });
+});
