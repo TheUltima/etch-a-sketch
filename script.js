@@ -44,6 +44,7 @@ eraseButton.addEventListener("click", () => {
   });
 });
 
+//We have to remove the previous rows of the drawing board first, or else subsequent rows are appended and the drawing board looks weird.
 function resetBoard() {
   const squareRows = document.querySelectorAll(".row");
   squareRows.forEach((square) => {

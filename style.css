@@ -31,15 +31,17 @@ button {
 
 .info {
   font-size: 24px;
-  color: rgb(0, 64, 116);
+  color: rgb(20, 27, 34);
 }
 
 .drawing-board-container {
   flex: 1 1 auto;
   display: flex;
+  flex-flow: row nowrap;
   justify-content: center;
   align-items: stretch;
   padding: 32px;
+  gap: 20px;
 }
 
 /*Setting overflow to hidden will prevent the drawing squares from over flowing through the rounded corners of the board.*/
@@ -49,6 +51,7 @@ button {
   flex-flow: column nowrap;
   background-color: rgb(236, 236, 236);
   border-radius: 20px;
+  margin-bottom: 100px;
   min-width: none;
   overflow: hidden;
 }
@@ -66,4 +69,16 @@ button {
 
 .drawn {
   background-color: black;
+}
+
+.colors-button {
+  align-self: end;
+  padding: 48px;
+  border-radius: 50%;
+}
+
+.darkening-button {
+  align-self: end;
+  padding: 48px;
+  border-radius: 50%;
 }
