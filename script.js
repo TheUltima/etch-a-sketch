@@ -1,5 +1,6 @@
 const mainDrawingBoard = document.querySelector(".drawing-board");
 let rows = 16;
+let colors = false;
 
 createDrawingBoard();
 
@@ -25,8 +26,12 @@ function attachEventListeners() {
   individualSquare.forEach((square) => {
     square.addEventListener("mouseover", (event) => {
       if (event.shiftKey) {
-        square.classList.add("drawn");
-        // square.style["background-color"] = `rgb(5,4,2)`;
+        switch (colors) {
+          case false:
+            square.classList.add("drawn");
+            break;
+          case true:
+        }
       }
       if (event.ctrlKey) {
         square.classList.remove("drawn");
