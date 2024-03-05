@@ -9,12 +9,12 @@ createDrawingBoard();
 function createDrawingBoard() {
   for (let i = 0; i < rows; i++) {
     const squareRow = document.createElement("div");
-    squareRow.classList.add(`row`, `row-${i}`);
+    squareRow.classList.add(`row`);
     mainDrawingBoard.appendChild(squareRow);
 
     for (let j = 0; j < rows; j++) {
       const squareColumn = document.createElement("div");
-      squareColumn.classList.add("square", `r-${i}`, `c-${j}`);
+      squareColumn.classList.add("square");
       squareRow.appendChild(squareColumn);
     }
   }
@@ -64,6 +64,7 @@ function makeSquaresDraw(event) {
         this.style[`background-color`] = `rgb(${RNG()}, ${RNG()}, ${RNG()})`;
     }
   }
+  //Listen for ctrl
   if (event.ctrlKey) {
     this.style[`background-color`] = `${defaultBoardColor}`;
   }

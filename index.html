@@ -7,6 +7,9 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap"
       rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kranky&family=Rubik+Doodle+Shadow&display=swap"
+      rel="stylesheet" />
 
     <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
@@ -16,22 +19,30 @@
   <!--The below attributes stop the cursor from dragging, an annoying feature when attempting to draw unto the board-->
   <body ondragstart="return false;" ondrop="return false;">
     <div class="info-sidebar">
-      <div class="title">ETCH A SKETCH!</div>
+      <div class="title Doodle">ETCH A SKETCH!</div>
       <div class="wrapper">
-        <div class="info">
+        <div class="info Kranky">
           Start drawing on the board by dragging your cursor around. In order to
           manually erase the squares, hold ctrl & hover over the squares.
         </div>
-        <div class="buttons">
+        <div class="buttons Kranky">
           <button class="erase-button">Erase</button>
           <button class="change-size-button">Change Board Size</button>
+        </div>
+        <div class="buttons2">
+          <a
+            href="https://github.com/TheUltima/etch-a-sketch"
+            rel="noreferrer"
+            target="_blank"
+            >GitHub</a
+          >
         </div>
       </div>
     </div>
     <div class="drawing-board-container">
-      <button class="colors-button"></button>
+      <button class="colors-button knob"></button>
       <div class="drawing-board"></div>
-      <button class="darkening-button"></button>
+      <button class="darkening-button knob"></button>
     </div>
   </body>
 </html>
