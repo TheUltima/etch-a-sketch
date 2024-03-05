@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  margin: 0;
+}
+
+.drawing-board {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1px;
+}
+
+.row {
+  display: flex;
+  gap: 1px;
+}
+
+.square {
+  padding: 10px;
+  display: flex;
+}
+
+.drawn {
+  background-color: black;
+}
