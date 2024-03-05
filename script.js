@@ -82,7 +82,6 @@ eraseButton.addEventListener("click", () => {
 //We have to remove the previous rows of the drawing board before changing its size, or else subsequent rows are appended making the board look weird.
 function resetBoard() {
   const squareRows = document.querySelectorAll(".row");
-  console.log(squareRows);
   squareRows.forEach((row) => {
     mainDrawingBoard.removeChild(row);
   });
