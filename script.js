@@ -1,6 +1,6 @@
 const mainDrawingBoard = document.querySelector(".drawing-board");
 let rows = 16;
-let colors = false;
+let paintingMode = "black-white";
 const newBoardColor = `rgb(236,236,236)`;
 
 createDrawingBoard();
@@ -29,23 +29,23 @@ function attachEventListeners() {
   const individualSquare = document.querySelectorAll(".square");
 
   individualSquare.forEach((square) => {
-    square.addEventListener("mouseover", (event) => {
-      if (event.shiftKey) {
-        switch (colors) {
-          case false:
-            square.style[`background-color`] = `rgb(${10}, ${10}, ${10})`;
-            break;
-          case true:
-            square.style[
-              `background-color`
-            ] = `rgb(${RNG()}, ${RNG()}, ${RNG()})`;
-        }
-      }
-      if (event.ctrlKey) {
-        square.style[`background-color`] = `${newBoardColor}`;
-      }
-    });
+    square.addEventListener("mouseover", makeSquaresDraw);
   });
+}
+
+function makeSquaresDraw(event) {
+  if (event.buttons === 1) {
+    switch (paintingMode) {
+      case "black-white":
+        this.style[`background-color`] = `rgb(0, 0, 0)`;
+        break;
+      case "colors":
+        this.style[`background-color`] = `rgb(${RNG()}, ${RNG()}, ${RNG()})`;
+    }
+  }
+  if (event.ctrlKey) {
+    this.style[`background-color`] = `${newBoardColor}`;
+  }
 }
 
 eraseButton = document.querySelector(".erase-button");
@@ -83,10 +83,10 @@ changeSizeButton.addEventListener("click", changeSize);
 
 colorsButton = document.querySelector(".colors-button");
 colorsButton.addEventListener("click", () => {
-  colors = true;
+  paintingMode = "colors";
 });
 
 darkeningButton = document.querySelector(".darkening-button");
 darkeningButton.addEventListener("click", () => {
-  colors = false;
+  paintingMode = "black-white";
 });

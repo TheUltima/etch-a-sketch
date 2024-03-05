@@ -13,14 +13,14 @@
 
     <title>Etch a Sketch!</title>
   </head>
-  <body>
+  <!--The below attributes stop the cursor from dragging, an annoying feature when attempting to draw unto the board-->
+  <body ondragstart="return false;" ondrop="return false;">
     <div class="info-sidebar">
       <div class="title">ETCH A SKETCH!</div>
       <div class="wrapper">
         <div class="info">
-          Start drawing on the board by holding the shift-button while moving
-          the cursor. In order to erase the squares, hold the ctrl-button
-          instead.
+          Start drawing on the board by dragging your cursor around. In order to
+          manually erase the squares, hold ctrl & hover over the squares.
         </div>
         <div class="buttons">
           <button class="erase-button">Erase</button>
