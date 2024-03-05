@@ -2,7 +2,7 @@ const mainDrawingBoard = document.querySelector(".drawing-board");
 let rows = 16;
 const darkenAmount = 25;
 let paintingMode = "black-white";
-const newBoardColor = `rgb(236,236,236)`;
+const defaultBoardColor = `rgb(236,236,236)`;
 
 createDrawingBoard();
 
@@ -40,7 +40,7 @@ function makeSquaresDraw(event) {
   if (event.buttons === 1) {
     switch (paintingMode) {
       case "black-white":
-        let currentColor = this.style[`background-color`];
+        const currentColor = this.style[`background-color`];
 
         if (!currentColor) {
           this.style[`background-color`] = `rgb(210, 210, 210)`;
@@ -65,7 +65,7 @@ function makeSquaresDraw(event) {
     }
   }
   if (event.ctrlKey) {
-    this.style[`background-color`] = `${newBoardColor}`;
+    this.style[`background-color`] = `${defaultBoardColor}`;
   }
 }
 
@@ -74,28 +74,29 @@ eraseButton = document.querySelector(".erase-button");
 eraseButton.addEventListener("click", () => {
   const allSquares = document.querySelectorAll(".square");
   allSquares.forEach((square) => {
-    square.style[`background-color`] = `${newBoardColor}`;
+    square.style[`background-color`] = `${defaultBoardColor}`;
   });
 });
 
-//We have to remove the previous rows of the drawing board first, or else subsequent rows are appended and the drawing board looks weird.
+//We have to remove the previous rows of the drawing board before changing its size, or else subsequent rows are appended making the board look weird.
 function resetBoard() {
   const squareRows = document.querySelectorAll(".row");
-  squareRows.forEach((square) => {
-    mainDrawingBoard.removeChild(square);
+  console.log(squareRows);
+  squareRows.forEach((row) => {
+    mainDrawingBoard.removeChild(row);
   });
 }
 
 function changeSize() {
   resetBoard();
   rows = prompt(
-    "Change the size of the board (resolution). \nMin: 16 \nMax: 100",
-    16
+    "Change the size of the board (resolution). \nMin: 16 \nMax: 100"
   );
-  if (isNaN(rows) || rows > 100 || rows < 2) {
-    changeBoardSize();
+  if (isNaN(rows) || rows > 100 || rows < 16) {
+    changeSize();
+  } else {
+    createDrawingBoard();
   }
-  createDrawingBoard();
 }
 
 changeSizeButton = document.querySelector(".change-size-button");
