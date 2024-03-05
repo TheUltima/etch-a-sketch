@@ -86,6 +86,7 @@ button {
   border-radius: 20px;
   margin-bottom: 100px;
   overflow: hidden;
+  box-shadow: 5px 5px 5px rgb(54, 54, 54);
 }
 
 .row {
@@ -105,4 +106,5 @@ button {
   padding: 48px;
   border-radius: 50%;
   background-color: white;
+  box-shadow: 5px 5px 5px rgb(54, 54, 54);
 }
