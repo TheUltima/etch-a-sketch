@@ -35,13 +35,32 @@ function attachEventListeners() {
   });
 }
 
-deleteButton = document.querySelector(".delete-button");
+eraseButton = document.querySelector(".erase-button");
 
-deleteButton.addEventListener("click", () => {
+eraseButton.addEventListener("click", () => {
   const allSquares = document.querySelectorAll(".square");
   allSquares.forEach((square) => {
     square.classList.remove("drawn");
   });
 });
 
+function resetBoard() {
+  const squareRows = document.querySelectorAll(".row");
+  squareRows.forEach((square) => {
+    mainDrawingBoard.removeChild(square);
+  });
+}
+
 changeSizeButton = document.querySelector(".change-size-button");
+
+changeSizeButton.addEventListener("click", () => {
+  resetBoard();
+  rows = prompt(
+    "Change the size of the board (resolution). \nMin: 16 \nMax: 100",
+    16
+  );
+  if (isNaN(rows) || rows > 100 || rows < 2) {
+    changeBoardSize();
+  }
+  createDrawingBoard();
+});

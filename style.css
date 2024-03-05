@@ -3,7 +3,7 @@ body {
   height: 100vh;
   flex-flow: row nowrap;
   margin: 0;
-  background-color: rgb(236, 206, 105);
+  background-color: rgb(255, 65, 65);
   color: rgb(0, 0, 0);
 }
 
@@ -22,10 +22,11 @@ button {
   font-family: Arial, Helvetica, sans-serif;
   padding: 10px;
   border: none;
+  cursor: pointer;
 }
 
-.delete-button {
-  background-color: red;
+.erase-button {
+  background-color: rgb(255, 255, 255);
 }
 
 .info {
@@ -46,7 +47,7 @@ button {
   display: flex;
   flex: 1 1 960px;
   flex-flow: column nowrap;
-  background-color: rgba(109, 250, 255, 0.541);
+  background-color: rgb(236, 236, 236);
   border-radius: 20px;
   min-width: none;
   overflow: hidden;
@@ -54,7 +55,8 @@ button {
 
 .row {
   display: flex;
-  flex: 1 1 5px;
+  flex: 1 1;
+  align-items: stretch;
 }
 
 .square {
