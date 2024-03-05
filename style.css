@@ -1,28 +1,59 @@
 body {
   display: flex;
   height: 100vh;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 20px;
+  flex-flow: row nowrap;
   margin: 0;
+  background-color: darkslategrey;
+}
+
+.info-sidebar {
+  flex: 0 1 300px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  border-right: 2px solid rgb(145, 145, 145);
+}
+
+button {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  border: none;
+}
+
+.delete-button {
+  background-color: red;
 }
 
 .info {
   font-size: 32px;
 }
 
+.drawing-board-container {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  border: 2px solid rgb(233, 11, 11);
+  padding: 32px;
+}
+
 .drawing-board {
   display: flex;
+  flex: 1 1 960px;
   flex-flow: column nowrap;
-  border: 1px solid black;
+  border: 2px solid rgb(233, 11, 11);
+  background-color: rgb(236, 236, 236);
 }
 
 .row {
   display: flex;
+  flex: 1 1 5px;
 }
 
 .square {
-  padding: 5px;
+  flex: 1 1 5px;
   display: flex;
 }
 

@@ -22,18 +22,16 @@ function createDrawingBoard() {
   attachEventListeners();
 }
 
-let dragging = false;
-
 function attachEventListeners() {
   const individualSquare = document.querySelectorAll(".square");
 
   individualSquare.forEach((square) => {
     square.addEventListener("mouseover", (event) => {
-      if (event.buttons === 1) {
+      if (event.shiftKey) {
         square.classList.add("drawn");
         // square.style["background-color"] = `rgb(5,4,2)`;
       }
-      if (event.buttons === 1 && event.shiftKey === true) {
+      if (event.ctrlKey) {
         square.classList.remove("drawn");
       }
     });
