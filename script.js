@@ -1,6 +1,7 @@
 const mainDrawingBoard = document.querySelector(".drawing-board");
 let rows = 16;
 let colors = false;
+const newBoardColor = `rgb(236,236,236)`;
 
 createDrawingBoard();
 
@@ -20,6 +21,10 @@ function createDrawingBoard() {
   attachEventListeners();
 }
 
+function RNG() {
+  return Math.floor(Math.random() * 255);
+}
+
 function attachEventListeners() {
   const individualSquare = document.querySelectorAll(".square");
 
@@ -28,13 +33,16 @@ function attachEventListeners() {
       if (event.shiftKey) {
         switch (colors) {
           case false:
-            square.classList.add("drawn");
+            square.style[`background-color`] = `rgb(${10}, ${10}, ${10})`;
             break;
           case true:
+            square.style[
+              `background-color`
+            ] = `rgb(${RNG()}, ${RNG()}, ${RNG()})`;
         }
       }
       if (event.ctrlKey) {
-        square.classList.remove("drawn");
+        square.style[`background-color`] = `${newBoardColor}`;
       }
     });
   });
@@ -45,7 +53,7 @@ eraseButton = document.querySelector(".erase-button");
 eraseButton.addEventListener("click", () => {
   const allSquares = document.querySelectorAll(".square");
   allSquares.forEach((square) => {
-    square.classList.remove("drawn");
+    square.style[`background-color`] = `${newBoardColor}`;
   });
 });
 
@@ -57,9 +65,7 @@ function resetBoard() {
   });
 }
 
-changeSizeButton = document.querySelector(".change-size-button");
-
-changeSizeButton.addEventListener("click", () => {
+function changeSize() {
   resetBoard();
   rows = prompt(
     "Change the size of the board (resolution). \nMin: 16 \nMax: 100",
@@ -69,4 +75,18 @@ changeSizeButton.addEventListener("click", () => {
     changeBoardSize();
   }
   createDrawingBoard();
+}
+
+changeSizeButton = document.querySelector(".change-size-button");
+
+changeSizeButton.addEventListener("click", changeSize);
+
+colorsButton = document.querySelector(".colors-button");
+colorsButton.addEventListener("click", () => {
+  colors = true;
+});
+
+darkeningButton = document.querySelector(".darkening-button");
+darkeningButton.addEventListener("click", () => {
+  colors = false;
 });

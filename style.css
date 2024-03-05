@@ -58,7 +58,7 @@ button {
 /*Setting overflow to hidden will prevent the drawing squares from over flowing through the rounded corners of the board.*/
 .drawing-board {
   display: flex;
-  flex: 0 0 960px;
+  flex: 0 0 800px;
   max-width: 800px;
   max-height: 800px;
   flex-flow: column nowrap;
@@ -78,10 +78,6 @@ button {
 .square {
   flex: 1 1;
   display: flex;
-}
-
-.drawn {
-  background-color: black;
 }
 
 .colors-button {
